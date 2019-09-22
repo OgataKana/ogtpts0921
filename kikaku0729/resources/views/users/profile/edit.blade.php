@@ -6,7 +6,7 @@
 
 <div class='container'>
 
-    <form action="/user/store" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
@@ -61,7 +61,7 @@
             profile画像(ロゴなど)
 
             @if($user->image)
-            <img src="/storage/{{$user->image}}" alt="">
+            <img src="{{$user->image}}" alt="">
             @endif
              <input type="file" value="" name="image">
         </div>

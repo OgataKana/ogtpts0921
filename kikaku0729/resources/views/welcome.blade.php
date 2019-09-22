@@ -15,7 +15,7 @@
             html, body {
                 background-color: #fff;
                 color: #F8F8FF;
-                font-family: 'HiraMinPro-W6';
+                /* font-family: 'HiraMinPro-W6'; */
                 /*'Raleway', sans-serif,'Courier New';*/
                 font-weight: 100;
                 height: 100vh;
@@ -54,6 +54,9 @@
             .title {
                 font-size: 84px;
             }
+            /* .links{
+                text-align: center;
+            } */
 
             .links > a {
                 color: #636b6f;
@@ -73,7 +76,17 @@
                 /*padding: 20px;*/
                 height: 55px;
             }
-
+            .howto {
+                color: #636b6f;
+                text-align: center;
+                width: 90%;
+                margin: auto;
+                padding: 10px;
+                border: 1px solid #aaa;
+                -webkit-align-items: center;
+                align-items: center;
+                margin-bottom: 200px;
+            }
 
         </style>
 
@@ -93,25 +106,68 @@
     <!--                </div>-->
     <!--    </div>-->
     <!--@endif-->
-    <div class="header">
+    {{-- <div class="header"> --}}
 
-    </div>
+    {{-- </div> --}}
             <div class="content">
-                <div class="title m-b-md" position="center">
+                {{-- <div class="title m-b-md" position="center">
                     <!--WELCOME-->
+                </div> --}}
+                <div>
+                     <p style="height: 100px;"> <img src="{{asset('images/parts/logo-a.png')}}" alt="" height="100px" weight="" ><p>
+                    {{-- <a href="{{ route('top') }}"><img src="{{asset('images/parts/logo.png')}}" alt="" height="100px" weight="" ></a> --}}
                 </div>
                    <img src="{{asset('images/parts/welcom2.png')}}" alt="" width="100%" height="30%">
                 <div class="links">
-
                     <a href="{{ route('login') }}">User Login</a>
                     <a href="{{ route('register') }}">User SingUp</a>
                     <a href="{{ route('admin.login') }}">Company Login</a>
-                    <a href="{{ route('admin.register') }}">Company SingUP</a></br></br></br>
-                    <a href="{{ route('top') }}">初めての方***について</a>
-
-
+                    <a href="{{ route('admin.register') }}">Company SingUP</a><br/><br/><br/>
                 </div>
+
+
+
             </div>
+        </div>
+        <div class="howto" >
+
+
+
+                <h2>Photo　Trade　Serviceについて</h2>
+            <br/><br/>
+                <p>アパレル業界に特化した画像売買のマッチングプラットフォームです。</p>
+                <p>近年、アパレルECは激戦状況です。</p>
+                <p>そのなかで売るとなると,</p>
+                <p>どれだけユーザーにマッチする画像であるかが重要となっています。</p>
+                <br/><br/>
+                <p>近年の傾向として、インスタグラマーの需要の高さが見立ちます。</p>
+                <p>理由として、個人でありながら自己プロデュース力・プレゼン力があり</p>
+                <p>多くのファンを獲得しているので、メディア離れの進んだ若年層へのPRとして最適です。</p>
+                <br/>
+                <p>そこで、人の心をつかむ画像を得意とする方や</p>
+                <p>積極的にアパレルの仕事をしたい方を</p>
+                <p>常に画像で悩んでいるアパレル企業とマッチングさせ、</p>
+                <p>いい画像を商品画像として買い取るプラットフォームを</p>
+                <p>企画しました。</p><br/><br/>
+
+                <p>このサービスは、アパレル業界全体の在庫や廃棄が減り、</p>
+                <p>現状の安さの価格競争が終わりをむかえ</p>
+                <p>ブランドの魅力で売上を作るブランドが増えることを可能にします。</p>
+                <br/><br/>
+                <p>そして今までの</p>
+                <p>企業側が探して→依頼するのみの形態から</p>
+                <p>提供したい人が企業にアプローチが可能に！</p>
+                <p>既存の形態よりマッチングがスムーズになります。</p>
+                <br/><br/>
+
+            <h3>人一人雇うより安い</h3>
+
+                <p>時間と資金を有益に使えるサービスを</p>
+                <p>多くのアパレル企業に提案します。</p>
+                <br/><br/>
+
+
+
         </div>
     </body>
 </html>

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class AdminPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +28,7 @@ class PostController extends Controller
        // Post::create(['text'=>'hello']);
         $posts = Post::all();
 
-        return view('users.message.index',['posts'=>$posts]);
+        return view('admins.message.index',['posts'=>$posts]);
     }
 
     /**
@@ -43,7 +42,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
          Post::create(['text'=>$request->text]);
-         return redirect('/message');
+         return redirect('admins/message');
     }
 
     /**

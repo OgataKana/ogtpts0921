@@ -63,6 +63,16 @@
 
 
 	</head>
+	<style>
+
+    .container{
+        width: 60%;
+        margin-top: 80px;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
+
+	</style>
 	<body>
 
 
@@ -76,17 +86,17 @@
 				<!--<div class='nmi'>-->
 				<ul>
 				<!--	<p>-->
-						<li><a href=""><i class="news"></i>news</a></li>
+						{{-- <li><a href=""><i class="news"></i>news</a></li> --}}
 						<!--</p>-->
 						<!--<p>-->
-							<li><a href=""><i class="new_mail"></i>mail</a></li>
+							{{-- <li><a href=""><i class="new_mail"></i>mail</a></li> --}}
 						<!--</p>-->
 						<!--<p>-->
-							<li><a href=""><i class="new_mail"></i>アイコン</a></li>
+							{{-- <li><a href=""><i class="new_mail"></i>アイコン</a></li> --}}
 						<!--</p>-->
 					<!--</div>-->
 					<!--<ul>-->
-						{{-- <li><a href="#"><i class="admin_name"></i>{{ Auth::admin()->admin_name}}さん</a></li> --}}
+						{{-- <li><a href="#"><i class="admin_name"></i>{{$admin->admin_name}}さん</a></li> --}}
 
 					<li>
 						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -114,15 +124,15 @@
 			<li class="active"><a href="{{ route('admin.message') }}">Message</a></li>
             <li class="active"><a href="{{ route('admin.favorite') }}">Favarite</a></li>
             <li class="active"><a href="{{ route('admin.photodata') }}">Photo Data</a></li>
-            <li class="active"><a href="{{ route('admin.request') }}">Request</a></li>
-            <li class="active"><a href="{{ route('admin.profile') }}">PR情報編集</a></li>
+            {{-- <li class="active"><a href="{{ route('admin.request') }}">Request</a></li> --}}
+            {{-- <li class="active"><a href="{{ route('admin.profile') }}">PR情報編集</a></li> --}}
             <li class="active"><a href="{{ route('admin.edit') }}">企業情報管理</a></li>
-            <li class="active"><a href="{{ route('admin.Q&A') }}">Q & A</a></li>
+            <li class="active"><a href="{{ route('admin.Q&A') }}">サービスについて</a></li>
 		</ul>
 	</nav>
 
 			<div class="fh5co-footer">
-				<p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></span></small></p>
+				{{-- <p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></span></small></p> --}}
 				<ul>
 					<!--<li><a href="#"><i class="icon-facebook2"></i></a></li>-->
 					<!--<li><a href="#"><i class="icon-twitter2"></i></a></li>-->
@@ -158,7 +168,7 @@
 	<!-- MAIN JS -->
 	<script src="{{ asset('js/main.js') }}"></script>
 	<script src="{{ asset('js/favorite.js') }}" ></script>
-	{{-- <script src="{{ asset('js/favorite.js') }}" data-adminid="{{Auth::admin()->admin_id}}" id="favorite-script" ></script> --}}
+	{{-- <script src="{{ asset('js/favorite.js') }}" data-adminid="{{ $admin->admin_id}}" id="favorite-script" ></script> --}}
 
 
 

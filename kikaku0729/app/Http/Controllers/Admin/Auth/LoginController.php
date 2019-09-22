@@ -78,5 +78,5 @@ class LoginController extends Controller
         'message' => $message
       ]);
     }
-   
+
 }

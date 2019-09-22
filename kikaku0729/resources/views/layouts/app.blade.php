@@ -19,6 +19,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<style>
+    .container{
+        width: 60%;
+        margin-top: 80px;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
+</style>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">

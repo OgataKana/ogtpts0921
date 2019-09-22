@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use Notifiable;
-    
+
     protected $guard = 'admin';
      protected $primaryKey ='admin_id';
     /**
@@ -28,13 +28,13 @@ class Admin extends Authenticatable
     protected $hidden = [
         'admin_password', 'remember_token',
     ];
-    
+
+
     public function getAuthPassword()
     {
         //Bcryptされているフィールドの場合は、Hash::makeを使用しない
         // $hash_pass = Hash::make($this->user_password);
         $hash_pass = $this->admin_password;
-
         return $hash_pass;
     }
 
@@ -44,9 +44,6 @@ class Admin extends Authenticatable
     public function genres(){
     return $this->belongsToMany('App\Genre');
     }
-    
-    
-    
-    
-}
 
+
+}

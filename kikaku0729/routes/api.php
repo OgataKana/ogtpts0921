@@ -12,12 +12,25 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+///////////////user->admin///////////////////////////////
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => 'auth:user'], function(){
-   
+
 });
 
  Route::POST('favorites/admins/{admin_id}/update','API\FavoriteController@update')->name('favorite.admin.update');
+
+
+///////////////admin->user///////////////////////////////
+
+ Route::middleware('auth:api')->get('/admin', function (Request $request) {
+    return $request->admin();
+});
+Route::group(['middleware' => 'auth:admin'], function(){
+
+});
+
+ Route::POST('favorites/admins/{user_id}/update','API\FavoriteController@update')->name('favorite.user.update');

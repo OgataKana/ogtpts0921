@@ -1,7 +1,14 @@
 @extends('admins.share.base')
-
-
 @section('content')
+
+<style>
+        .container{
+            width: 60%;
+            margin-top: 80px;
+            margin-left: 20%;
+            margin-right: 10%;
+        }
+</style>
 
 企業編集フォーム
 
@@ -40,7 +47,7 @@
             profile画像(ブランドロゴなど)
 
             @if($admin->admin_image)
-            <img src="/storage/{{$admin->admin_image}}" alt="">
+            <img src="{{$admin->admin_image}}" alt="">
             @endif
              <input type="file" value="" name="admin_image">
         </div>

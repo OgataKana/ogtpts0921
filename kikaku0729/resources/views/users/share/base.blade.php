@@ -58,13 +58,21 @@
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
 	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
+	<!--[if lt IE 9]-->
+	<script src="{{ asset('js/respond.min.js') }}"></script>
 	<![endif]-->
 
 	</head>
+	<style>
+			.container{
+				width: 60%;
+				margin-top: 80px;
+				margin-left: 20%;
+				margin-right: 10%;
+			}
+	</style>
 	<body>
 
 
@@ -78,17 +86,17 @@
 				<!--<div class='nmi'>-->
 				<ul>
 					<!--<p>-->
-						<li><a href=""><i class="news"></i>news</a></li>
+						{{-- <li><a href=""><i class="news"></i>news</a></li> --}}
 					<!--</p>-->
 					<!--<p>-->
-						<li><a href=""><i class="new_mail"></i>mail</a></li>
+						{{-- <li><a href=""><i class="new_mail"></i>mail</a></li> --}}
 					<!--</p>-->
 					<!--<p>-->
-						<li><a href=""><i class="new_mail"></i>アイコン</a></li>
+						{{-- <li><a href=""><i class="new_mail"></i>アイコン</a></li> --}}
 					<!--</p>-->
 				<!--</div>-->
 				<!--<ul>-->
-					<li><a href="#"><i class="user_name"></i>{{Auth::user()->user_name }}さん</a></li>
+					<li><a href="{{ route('user.edit') }}"><i class="user_name"></i>{{Auth::user()->user_name }}さん</a></li>
 			        <li>
 						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
 							{{ __('Logout') }}
@@ -115,15 +123,15 @@
 			<li class="active"><a href="{{ route('message') }}">Messages</a></li>
             <li class="active"><a href="{{ route('favorite') }}">Favarite</a></li>
             <li class="active"><a href="{{ route('photodata') }}">Photo Data</a></li>
-            <li class="active"><a href="{{ route('sales') }}">Sales</a></li>
-           	<li class="active"><a href="{{ route('profile') }}">PR情報編集</a></li>
+            {{-- <li class="active"><a href="{{ route('sales') }}">Sales</a></li> --}}
+           	{{-- <li class="active"><a href="{{ route('profile') }}">PR情報編集</a></li> --}}
             <li class="active"><a href="{{ route('user.edit') }}">個人情報管理</a></li>
-          	<li class="active"><a href="{{ route('Q&A') }}">Q & A</a></li>
+          	<li class="active"><a href="{{ route('Q&A') }}">サービスについて</a></li>
 		</ul>
 	</nav>
 
 			<div class="fh5co-footer">
-				<p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></span></small></p>
+				{{-- <p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></span></small></p> --}}
 				<ul>
 					<!--<li><a href="#"><i class="icon-facebook2"></i></a></li>-->
 					<!--<li><a href="#"><i class="icon-twitter2"></i></a></li>-->

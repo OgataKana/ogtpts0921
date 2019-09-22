@@ -44,3 +44,13 @@ window.axios = require('axios');
 //     cluster: 'mt1',
 //     encrypted: true
 // });
+import Echo from 'laravel-echo'
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: true
+});
