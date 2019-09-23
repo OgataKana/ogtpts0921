@@ -81,7 +81,11 @@
 		<!--ヘッダー-->
 		<!--@yield('header')-->
 		<div class="header">
-				<a href="" class="logo"><img src="{{asset('images/parts/logo.png')}}" alt="" height="130px" weight="" padding="50px"></a>
+				<a href="" class="logo"><img src="{{asset('images/parts/logo.png')}}" alt="" height="75px" weight="" padding="50px"
+				style="
+					margin-left: 50px;
+					margin-top: 10px;
+				"></a>
 			<div class="header-menu">
 				<!--<div class='nmi'>-->
 				<ul>

@@ -1,88 +1,43 @@
 @extends('admins.share.base')
 @section('content')
+<table class="table table-striped table-bordered">
+		<div class="favorite">
+			<h3>ユーザーからのアプローチ</h3>
+			<tr>
+				<th>ユーザー名</th>
+				<th>依頼</th>
+				<th>拒否</th>
 
-<div id="fh5co-main">
-			<div class="fh5co-narrow-content">
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<img class="img-responsive" src="images/img_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					</div>
-					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<h2 class="fh5co-heading">About Company</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Quisque sit amet efficitur nih. Interdum et malesuada fames ac ante ipsum primis in faucibus interda et malesuada parturient.</p>
-						<p>Quisque sit amet efficitur nih. Interdum et malesuada fames ac ante ipsum primis in faucibus interda et malesuada parturient.</p>
-					</div>
-				</div>
-			</div>
-			<div>
-			    request
-			</div>
+			</tr>
 
-			<div class="fh5co-narrow-content">
-					<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Our Services</h2>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-settings"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Strategy</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-search4"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Explore</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
+			@foreach($favorites as $favorite)
+			<tr>
+				<td>{{ $favorite->user_id }}</td>
+				<td><button >依頼</button></td>
+            	<td><button >拒否</button></td>
 
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-paperplane"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Direction</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-params"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Expertise</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		
-			<div class="fh5co-narrow-content">
-				<div class="row">
-					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-						<h1 class="fh5co-heading-colored">Get in touch</h1>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-						<p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						<p><a href="#" class="btn btn-primary">Learn More</a></p>
-					</div>
-					
-				</div>
-			</div>
+		  </tr>
+		  @endforeach
+
 		</div>
+	</table>
+	<table class="table table-striped table-bordered">
+		<div class="request">
+			<h3>ユーザーへのリクエスト</h3>
+			<tr>
+				<th>ユーザー名</th>
+				<th>取消</th>
+
+			</tr>
+			@foreach($requests as $request)
+			  <tr>
+				<td>{{ $request->user_id }}</td>
+				<td><button>取消</button></td>
+
+			  </tr>
+			  @endforeach
+
+		</div>
+	</table>
+
 @endsection

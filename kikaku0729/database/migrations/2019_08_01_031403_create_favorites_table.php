@@ -17,7 +17,7 @@ class CreateFavoritesTable extends Migration
             $table->integer('user_id');
             $table->integer('admin_id');
             $table->timestamps();
-        });
+               });
     }
 
     /**
