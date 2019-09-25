@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateRequestPhotosTable extends Migration
+class CreateGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +11,12 @@ class CreateRequestPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('request_photos', function (Blueprint $table) {
-            $table->increments('photo_id');
-            $table->string('photo_url');
-            $table->integer('request_id');
+        Schema::create('genres', function (Blueprint $table) {
+            $table->increments('genre_id');
+            $table->string('genre_name',10);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -28,6 +24,6 @@ class CreateRequestPhotosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_photos');
+        Schema::dropIfExists('genres');
     }
 }

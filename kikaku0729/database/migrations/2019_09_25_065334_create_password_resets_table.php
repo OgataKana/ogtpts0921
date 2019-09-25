@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateFavoritesTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +11,13 @@ class CreateFavoritesTable extends Migration
      */
     public function up()
     {
-        Schema::create('favorites', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('admin_id');
-            $table->timestamps();
-               });
-    }
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('user_email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
 
+        });
+    }
     /**
      * Reverse the migrations.
      *
@@ -27,6 +25,6 @@ class CreateFavoritesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('password_resets');
     }
 }

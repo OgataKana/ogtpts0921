@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumToAdminTable extends Migration
+class CreateAdminMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddColumToAdminTable extends Migration
      */
     public function up()
     {
-         Schema::table('admins', function (Blueprint $table) {
-          $table->string('admin_genre')->nullable();
-         });
+        Schema::create('admin_messages', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->text('message');
+            $table->integer('request_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +28,6 @@ class AddColumToAdminTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('admin_messages');
     }
 }

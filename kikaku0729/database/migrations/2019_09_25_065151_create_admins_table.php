@@ -22,7 +22,7 @@ class CreateAdminsTable extends Migration
             $table->string('ec_url')->nullable();
             $table->string('admin_password')->nullable();
             $table->string('admin_image')->nullable();
-          
+            $table->string('admin_genre')->nullable();
             $table->timestamps();
         });
     }

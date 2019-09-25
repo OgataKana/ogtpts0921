@@ -34,12 +34,12 @@ Route::middleware("auth")->group(function(){//中はログイン しないとア
     Route::post('/message/store', 'PostController@store')->name('message.store');
 
     //////////////////favorite//u->a//////////////////////////
-    Route::get('/favorite', function () {
-        $admin = Admin::orderBy('created_at', 'asc')->get();
-          return view('favorite', [  'admins' => $admins  ]);
-    });
-    Route::delete('/favorite/{favorite}', function (favorite $favorite) {
-        $admin->delete();  return redirect('/favorite');  });
+    // Route::get('/favorite', function () {
+    //     $admin = Admin::orderBy('created_at', 'asc')->get();
+    //       return view('favorite', [  'admins' => $admins  ]);
+    // });
+    // Route::delete('/favorite/{favorite}', function (favorite $favorite) {
+    //     $admin->delete();  return redirect('/favorite');  });
 
     ////////////////////////////////////////////////////////
 
@@ -81,12 +81,12 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
     Route::get('/message', 'AdminPostController@create')->name('admin.message');
     Route::post('/message/store', 'AdminPostController@store')->name('admin.message.store');
     /////////////////////request//a->u/////////////////////////
-    Route::get('/request', function () {
-        $user = User::orderBy('created_at', 'asc')->get();
-        return view('request', [  'users' => $users  ]);
-    });
-    Route::delete('/request/{request}', function (request $request) {
-          $user->delete();  return redirect('/request');  });
+    // Route::get('/request', function () {
+    //     $user = User::orderBy('created_at', 'asc')->get();
+    //     return view('request', [  'users' => $users  ]);
+    // });
+    // Route::delete('/request/{request}', function (request $request) {
+    //       $user->delete();  return redirect('/request');  });
 
 
     ///////////////////////////////////////////////////////

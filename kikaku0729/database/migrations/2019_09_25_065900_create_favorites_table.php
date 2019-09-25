@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateAdminMessagesTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +11,12 @@ class CreateAdminMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_messages', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->integer('user_id');
-            $table->text('message');
-            $table->integer('request_id');
-
+            $table->integer('admin_id');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -29,6 +24,6 @@ class CreateAdminMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_messages');
+        Schema::dropIfExists('favorites');
     }
 }

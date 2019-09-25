@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreatePostsTable extends Migration
+class CreateRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +11,16 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('text');
+        Schema::create('requests', function (Blueprint $table) {
+            $table->increments('request_id');
+            $table->integer('genre_id');
+            $table->text('comment');
+            $table->integer('user_id');
+            $table->integer('admin_id');
+            $table->boolean('judg');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -27,6 +28,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('requests');
     }
 }
