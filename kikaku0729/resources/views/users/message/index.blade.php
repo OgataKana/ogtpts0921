@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('users.share.base')
 
 @section('content')
     <div class="container">
@@ -8,8 +8,8 @@
                     <div class="card-header">
                         <ul id="board">
                             @foreach($posts as $post)
-                                <li>{{ $post->text }}</li>
-                            @endforeach
+                            <li>{{ $post->text }}</li>
+                        @endforeach
                         </ul>
                     </div>
 

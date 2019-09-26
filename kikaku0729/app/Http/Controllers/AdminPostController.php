@@ -13,7 +13,10 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-
+        $posts = Post::all();
+        return view('admins.message.index',[
+            "posts" => $posts
+        ]);
 }
 
     /**
@@ -25,10 +28,11 @@ class AdminPostController extends Controller
      //表示
     public function create()
     {
-       // Post::create(['text'=>'hello']);
-        $posts = Post::all();
+        $post = new Post($request->all());
+        $post->save();
+        event(new Posted($post));
 
-        return view('admins.message.index',['posts'=>$posts]);
+        return response()->json(['message' => '投稿しました。']);
     }
 
     /**
@@ -41,8 +45,8 @@ class AdminPostController extends Controller
      //
     public function store(Request $request)
     {
-         Post::create(['text'=>$request->text]);
-         return redirect('admins/message');
+        //  Post::create(['text'=>$request->text]);
+        //  return redirect('/admins/message');
     }
 
     /**

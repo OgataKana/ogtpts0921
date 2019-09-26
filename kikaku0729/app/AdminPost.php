@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class AdminPost extends Model
 {
     protected $fillable = [
-        'text'
+        'text','admin_id','user_id'
     ];
 }

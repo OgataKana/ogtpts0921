@@ -14,8 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-
-}
+        $posts = Post::all();
+        return view('users.message.index',[
+            "posts" => $posts
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,13 +27,21 @@ class PostController extends Controller
      */
 
      //表示
-    public function create()
-    {
-       // Post::create(['text'=>'hello']);
-        $posts = Post::all();
+    // public function create()
+    // {
+    //    // Post::create(['text'=>'hello']);
+    //     $posts = Post::all();
 
-        return view('users.message.index',['posts'=>$posts]);
+    //     return view('users.message.index',['post'=>$post]);
+    // }
+    public function create(Request $request){
+        $post = new Post($request->all());
+        $post->save();
+        event(new Posted($post));
+
+        return response()->json(['message' => '投稿しました。']);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,11 +51,11 @@ class PostController extends Controller
      */
 
      //
-    public function store(Request $request)
-    {
-         Post::create(['text'=>$request->text]);
-         return redirect('/message');
-    }
+    // public function store(Request $request)
+    // {
+    //      Posts::create(['text'=>$request->text]);
+    //      return redirect('/message');
+    // }
 
     /**
      * Display the specified resource.

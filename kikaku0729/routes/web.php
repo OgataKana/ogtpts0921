@@ -30,8 +30,11 @@ Route::middleware("auth")->group(function(){//中はログイン しないとア
     Route::POST('/users/store','UserController@store')->name('user.store');//store保存
 
     ////////////////////message/////////////////////////////////
-    Route::get('/message', 'PostController@create')->name('message');
-    Route::post('/message/store', 'PostController@store')->name('message.store');
+    Route::get("posts", 'PostController@index')->name('message');
+    Route::post("posts/create", 'PostController@create')->name('message.store');
+
+    // Route::get('/message', 'PostController@create')->name('message');
+    // Route::post('/message/store', 'PostController@store')->name('message.store');
 
     //////////////////favorite//u->a//////////////////////////
     // Route::get('/favorite', function () {
@@ -78,8 +81,11 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
 
     Route::get('password/rest', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     /////////////////admin-message///////////////////////////
-    Route::get('/message', 'AdminPostController@create')->name('admin.message');
-    Route::post('/message/store', 'AdminPostController@store')->name('admin.message.store');
+    Route::get("posts", 'PostController@index')->name('admin.message');
+    Route::post("posts/create", 'PostController@create')->name('admin.message.store');
+
+    // Route::get('/message', 'AdminPostController@create')->name('admin.message');
+    // Route::post('/message/store', 'AdminPostController@store')->name('admin.message.store');
     /////////////////////request//a->u/////////////////////////
     // Route::get('/request', function () {
     //     $user = User::orderBy('created_at', 'asc')->get();
