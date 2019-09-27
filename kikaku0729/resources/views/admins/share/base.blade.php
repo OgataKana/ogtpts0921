@@ -62,6 +62,7 @@
 	<script src="{{ asset('js/respond.min.js') }}"></script>
 
 
+
 	</head>
 	<style>
 
@@ -125,9 +126,9 @@
 			<nav id="fh5co-main-menu" role="navigation">
 		<ul>
 			<li class="active"><a href="{{ route('admin.message') }}">Message</a></li>
-            <li class="active"><a href="{{ route('admin.favorite') }}">Favarite</a></li>
+            {{-- <li class="active"><a href="{{ route('admin.favorite') }}">Favarite</a></li> --}}
             <li class="active"><a href="{{ route('admin.photodata') }}">Photo Data</a></li>
-            {{-- <li class="active"><a href="{{ route('admin.request') }}">Request</a></li> --}}
+            <li class="active"><a href="{{ route('admin.request') }}">Request</a></li>
             {{-- <li class="active"><a href="{{ route('admin.profile') }}">PR情報編集</a></li> --}}
             <li class="active"><a href="{{ route('admin.edit') }}">企業情報管理</a></li>
             <li class="active"><a href="{{ route('admin.Q&A') }}">サービスについて</a></li>
@@ -170,9 +171,10 @@
 
 	<!-- MAIN JS -->
 	<script src="{{ asset('js/main.js') }}"></script>
-	<script src="{{ asset('js/favorite.js') }}" ></script>
-	{{-- <script src="{{ asset('js/favorite.js') }}" data-adminid="{{ $admin->admin_id}}" id="favorite-script" ></script> --}}
 
+	<!-- request -->
+	<script src="{{ asset('js/request.js') }}"  id="request-script" ></script>
+	{{-- <script src="{{ asset('js/request.js') }}" data-adminid="{{ Auth::admin()->admin_id}}" id="request-script" ></script> --}}
 
 
 	</body>

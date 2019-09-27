@@ -4,8 +4,8 @@ $('.btn-iine').on('click',function(){
     //ユーザーと企業（admin）のidをlaravelに
     //送りたいので、まずはプログラム上で取得して
     //変数に保存する
-    const user_id = $('#favorite-script').data('userid');
-    const admin_id = $(this).data('admin_id');
+    const admin_id = $('#request-script').data('adminid');
+    const user_id = $(this).data('user_id');
 
     const clickedButton = $(this);
 
@@ -39,10 +39,7 @@ $('.btn-iine').on('click',function(){
 });
 /////////承諾した場合/////////////
 $().on('click',function(){
-    $(document).ready(function(){
-        $("#ok_btn").click(function(){
-          alert('承諾しました。');
-        });
+
 
 });
 
