@@ -19,7 +19,7 @@ $('.btn-iine').on('click',function(){
         data:{
             'user_id':user_id,
             'admin_id':admin_id,
-            'host':user
+
         }
 
     }).done(function(data){

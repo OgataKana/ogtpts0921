@@ -107,7 +107,11 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
     Route::get('/favorite','AdminController@favorite')->name('admin.favorite');
     // Route::get('/message','AdminController@message')->name('admin.message');
     Route::get('/photodata','AdminController@photodata')->name('admin.photodata');
+
     Route::get('/request','AdminController@request')->name('admin.request');
+    Route::post('/request/post','AdminController@post')->name('admin.request.post');
+
+
     Route::get('/pr','AdminController@pr')->name('admin.profile');
     Route::get('/Q&A','AdminController@QA')->name('admin.Q&A');
 

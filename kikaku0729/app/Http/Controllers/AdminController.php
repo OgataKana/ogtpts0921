@@ -79,11 +79,11 @@ class AdminController extends Controller
     }
     ///////////////////////いいね！一覧//////////////////////////
     public function request(){
-        $user = User::where("admin_id",Auth::id())->first();
+        $admin = Admin::where("admin_id",Auth::id())->first();
 
         $host = 'admin';
 
-        $lists = Requests_admin::where('admin_id', Auth::id())->where('host', 'user')->get();
+        $lists = Request::where('admin_id', Auth::id())->where('host', 'user')->get();
         $user_lists = array();
         foreach ($lists as $list){
             array_push($user_lists ,$list->user_id);
@@ -91,7 +91,10 @@ class AdminController extends Controller
         var_dump($user_lists);
         $users = User::whereIn('user_id', $lists);
 
-        return view('admins.request.index',['user' => $user,'lists' => $lists, 'admin'=> $host]);
+        return view('admins.request.index',['admin' => $admin,'lists' => $lists, 'admin'=> $host]);
+    }
+    public function post(){
+
     }
     ////////////////////////////////////////////////////////////
 
@@ -101,7 +104,7 @@ class AdminController extends Controller
     }
     public function message(){
         $admin = Admin::where("admin_id",Auth::id())->first();
-        return view('admins.message.index',['admin' => $admin]);
+        return view('admins.message.list',['admin' => $admin]);
     }
     public function photodata(){
         $admin = Admin::where("admin_id",Auth::id())->first();

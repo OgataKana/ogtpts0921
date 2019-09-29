@@ -31,7 +31,7 @@
     <td>{{ $admin->admin_name }}</td>
     <td>{{ $admin->admin_gender }}</td>
     <td>{{ $admin->admin_ganre }}</td>
-    <td><button class="btn-iine" data-admin_id="{{$admin->admin_id}}"><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
+    <td><button class="btn-iine" data-admin_id="{{$admin->admin_id}}" $host = 'admin';><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
 
     <!--<td>{{ $admin->admin_text }}</td>-->
 

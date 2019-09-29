@@ -75,10 +75,10 @@ class UserController extends Controller
         public function favorite(){
             $user = User::where("user_id",Auth::id())->first();
 
-            $host = 'user';
+            $host= 'user';
 
 
-            $lists = Favorites::where('user_id', Auth::id())->where('host', 'admin')->get();
+            $lists = Favorite::where('user_id', Auth::id())->where('host', 'admin')->get();
             $admin_lists = array();
             foreach ($lists as $list){
                 array_push($admin_lists ,$list->admin_id);
@@ -88,11 +88,15 @@ class UserController extends Controller
 
             return view('users.favorite.index',['user' => $user,'lists' => $lists, 'user' => $host]);
         }
+        public function post(){
+
+        }
+
 
         ////////////////////////////////////////////////////////////
         public function message(){
             $user = User::where("user_id",Auth::id())->first();
-            return view('users.message.index',['user' => $user]);
+            return view('users.message.list',['user' => $user]);
         }
         public function photodata(){
             $user = User::where("user_id",Auth::id())->first();

@@ -14,7 +14,7 @@ class AdminPostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('admins.message.index',[
+        return view('admins.message.list',[
             "posts" => $posts
         ]);
 }
