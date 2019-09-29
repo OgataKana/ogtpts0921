@@ -121,12 +121,13 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight" style="height: 458px;padding-top: 100px;">
 
-			<h1 id="fh5co-logo"><a href="{{ route('home') }}">Menu</a></h1>
+			<h1 id="fh5co-logo"><a href="">Menu</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 		<ul>
+			<li class="active"><a href="{{ route('home') }}">List</a></li>
+			<li class="active"><a href="{{ route('favorite') }}">Favarite</a></li>
 			<li class="active"><a href="{{ route('message') }}">Messages</a></li>
-            <li class="active"><a href="{{ route('favorite') }}">Favarite</a></li>
-            <li class="active"><a href="{{ route('photodata') }}">Photo Data</a></li>
+            {{-- <li class="active"><a href="{{ route('photodata') }}">Photo Data</a></li> --}}
             {{-- <li class="active"><a href="{{ route('sales') }}">Sales</a></li> --}}
            	{{-- <li class="active"><a href="{{ route('profile') }}">PR情報編集</a></li> --}}
             <li class="active"><a href="{{ route('user.edit') }}">個人情報管理</a></li>

@@ -50,7 +50,11 @@ Route::middleware("auth")->group(function(){//中はログイン しないとア
 });
 //各ページ表示//
     Route::get('/about','UserController@about');
+
+
     Route::get('/favorite','UserController@favorite')->name('favorite');
+    Route::post('/favorite/post','UserController@post')->name('favorite.post');
+
     // Route::get('/message','UserController@message')->name('message');
     Route::get('/photodata','UserController@photodata')->name('photodata');
     Route::get('/request','UserController@request')->name('request');

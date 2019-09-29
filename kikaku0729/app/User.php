@@ -56,8 +56,11 @@ class User extends Authenticatable
     }
     //Favorite_table
     public function favorites(){
-    return $this->belongsToMany('App\User_favorite');
+    return $this->belongsToMany('App\favorite');
     }
-    
-    
+    public function requests(){
+        return $this->belongsToMany('App\Request_admin');
+        }
+
+
 }

@@ -11,13 +11,16 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-   
+
+
     // 以下追加
       $admins = [
         ["admin_name"=>"test1","admin_email"=>"test1@test.com","admin_password"=>"(uhBnji9"],
         ["admin_name"=>"test2","admin_email"=>"test2@test.com","admin_password"=>"(uhBnji9"],
-        ["admin_name"=>"test3","admin_email"=>"test3@test.com","admin_password"=>"(uhBnji9"]
+        ["admin_name"=>"test3","admin_email"=>"test3@test.com","admin_password"=>"(uhBnji9"],
+        ["admin_name"=>"test4","admin_email"=>"test4@test.com","admin_password"=>"(uhBnji9"],
+        ["admin_name"=>"test5","admin_email"=>"test5@test.com","admin_password"=>"(uhBnji9"],
+        ["admin_name"=>"test6","admin_email"=>"test6@test.com","admin_password"=>"(uhBnji9"]
       ];
 
       foreach($admins as $admin) {

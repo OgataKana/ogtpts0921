@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;//appから数える
 use Auth;
+use App\Requests_admin;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -75,7 +77,23 @@ class AdminController extends Controller
 
         return redirect('/admins/edit');
     }
+    ///////////////////////いいね！一覧//////////////////////////
+    public function request(){
+        $user = User::where("admin_id",Auth::id())->first();
 
+        $host = 'admin';
+
+        $lists = Requests_admin::where('admin_id', Auth::id())->where('host', 'user')->get();
+        $user_lists = array();
+        foreach ($lists as $list){
+            array_push($user_lists ,$list->user_id);
+        }
+        var_dump($user_lists);
+        $users = User::whereIn('user_id', $lists);
+
+        return view('admins.request.index',['user' => $user,'lists' => $lists, 'admin'=> $host]);
+    }
+    ////////////////////////////////////////////////////////////
 
      public function favorite(){
         $admin = Admin::where("admin_id",Auth::id())->first();
@@ -89,10 +107,10 @@ class AdminController extends Controller
         $admin = Admin::where("admin_id",Auth::id())->first();
         return view('admins.photodata.index',['admin' => $admin]);
     }
-    public function request(){
-        $admin = Admin::where("admin_id",Auth::id())->first();
-        return view('admins.request.index',['admin' => $admin]);
-    }
+    // public function request(){
+    //     $admin = Admin::where("admin_id",Auth::id())->first();
+    //     return view('admins.request.index',['admin' => $admin]);
+    // }
     public function pr(){
         $admin = Admin::where("admin_id",Auth::id())->first();
         return view('admins.profile.index',['admin' => $admin]);

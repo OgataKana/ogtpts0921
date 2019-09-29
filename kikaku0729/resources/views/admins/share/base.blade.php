@@ -100,7 +100,7 @@
 						<!--</p>-->
 					<!--</div>-->
 					<!--<ul>-->
-						{{-- <li><a href="#"><i class="admin_name"></i>{{$admin->admin_name}}さん</a></li> --}}
+						<li><a href="#"><i class="admin_name"></i>{{ Auth::user()->admin_name}}さん</a></li>
 
 					<li>
 						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -122,13 +122,15 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight" style="height: 458px;padding-top: 100px;">
 
-			<h1 id="fh5co-logo"><a href="{{ route('admin.home') }}">Menu</a></h1>
+			<h1 id="fh5co-logo"><a href="">Menu</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 		<ul>
+			<li class="active"><a href="{{ route('admin.home') }}">List</a></li>
+			<li class="active"><a href="{{ route('admin.request') }}">Request</a></li>
 			<li class="active"><a href="{{ route('admin.message') }}">Message</a></li>
             {{-- <li class="active"><a href="{{ route('admin.favorite') }}">Favarite</a></li> --}}
-            <li class="active"><a href="{{ route('admin.photodata') }}">Photo Data</a></li>
-            <li class="active"><a href="{{ route('admin.request') }}">Request</a></li>
+            {{-- <li class="active"><a href="{{ route('admin.photodata') }}">Photo Data</a></li> --}}
+
             {{-- <li class="active"><a href="{{ route('admin.profile') }}">PR情報編集</a></li> --}}
             <li class="active"><a href="{{ route('admin.edit') }}">企業情報管理</a></li>
             <li class="active"><a href="{{ route('admin.Q&A') }}">サービスについて</a></li>
@@ -173,8 +175,8 @@
 	<script src="{{ asset('js/main.js') }}"></script>
 
 	<!-- request -->
-	<script src="{{ asset('js/request.js') }}"  id="request-script" ></script>
-	{{-- <script src="{{ asset('js/request.js') }}" data-adminid="{{ Auth::admin()->admin_id}}" id="request-script" ></script> --}}
+	{{-- <script src="{{ asset('js/request.js') }}"  id="request-script" ></script> --}}
+	<script src="{{ asset('js/request.js') }}" data-adminid="{{ Auth::user()->admin_id}}" id="request-script" ></script>
 
 
 	</body>

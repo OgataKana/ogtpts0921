@@ -15,7 +15,10 @@ class UsersTableSeeder extends Seeder
       $users = [
         ["user_name"=>"test1","user_email"=>"test1@test.com","user_password"=>"(uhBnji9"],
         ["user_name"=>"test2","user_email"=>"test2@test.com","user_password"=>"(uhBnji9"],
-        ["user_name"=>"test3","user_email"=>"test3@test.com","user_password"=>"(uhBnji9"]
+        ["user_name"=>"test3","user_email"=>"test3@test.com","user_password"=>"(uhBnji9"],
+        ["user_name"=>"test4","user_email"=>"test4@test.com","user_password"=>"(uhBnji9"],
+        ["user_name"=>"test5","user_email"=>"test5@test.com","user_password"=>"(uhBnji9"],
+        ["user_name"=>"test6","user_email"=>"test6@test.com","user_password"=>"(uhBnji9"]
       ];
 
       foreach($users as $user) {
@@ -26,21 +29,7 @@ class UsersTableSeeder extends Seeder
         $u->save();
       }
     // ここまで
-   
-    // // 以下追加
-    //   $admins = [
-    //     ["admin_name"=>"test1","admin_email"=>"test1@test.com","admin_password"=>"(uhBnji9"],
-    //     ["admin_name"=>"test2","admin_email"=>"test2@test.com","admin_password"=>"(uhBnji9"],
-    //     ["admin_name"=>"test3","admin_email"=>"test3@test.com","admin_password"=>"(uhBnji9"]
-    //   ];
 
-    //   foreach($admins as $admin) {
-    //     $a = new User;
-    //     $a->admin_name = $admin["admin_name"];
-    //     $a->admin_email = $admin["admin_email"];
-    //     $a->admin_password = bcrypt($admin["admin_password"]);
-    //     $a->save();
-    //   }
-// ここまで
+
     }
 }

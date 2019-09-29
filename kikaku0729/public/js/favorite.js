@@ -18,8 +18,8 @@ $('.btn-iine').on('click',function(){
         dataType:'JSON',
         data:{
             'user_id':user_id,
-            'admin_id':admin_id
-
+            'admin_id':admin_id,
+            'host':user
         }
 
     }).done(function(data){
@@ -38,16 +38,16 @@ $('.btn-iine').on('click',function(){
 
 });
 /////////承諾した場合/////////////
-$().on('click',function(){
-    $(document).ready(function(){
-        $("#ok_btn").click(function(){
-          alert('承諾しました。');
-        });
+// $().on('click',function(){
+//     $(document).ready(function(){
+//         $("#ok_btn").click(function(){
+//           alert('承諾しました。');
+//         });
 
-});
+// });
 
 //////////拒否した場合/////////////////
-$().on('click',function(){
+// $().on('click',function(){
 
 
-});
+// })

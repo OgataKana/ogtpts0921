@@ -44,6 +44,20 @@ class Admin extends Authenticatable
     public function genres(){
     return $this->belongsToMany('App\Genre');
     }
-
+    //User_prphots_table
+    public function user_prphots(){
+    return $this->belongsToMany('App\User_prphot');
+    }
+    //User_revue_table
+    public function user_revues(){
+    return $this->belongsToMany('App\User_revue');
+    }
+    //Favorite_table
+    public function favorites(){
+    return $this->belongsToMany('App\favorite');
+    }
+    public function requests(){
+        return $this->belongsToMany('App\Requests_admin');
+    }
 
 }

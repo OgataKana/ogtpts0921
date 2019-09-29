@@ -13,13 +13,13 @@ $('.btn-iine').on('click',function(){
     //プログラムも書く
     //
     $.ajax({
-        url:'api/favorites/admins/'+ admin_id + '/update',
+        url:'api/requests_admin/users/'+ user_id + '/update',
         method:'POST',
         dataType:'JSON',
         data:{
             'user_id':user_id,
-            'admin_id':admin_id
-
+            'admin_id':admin_id,
+            'host':admin
         }
 
     }).done(function(data){
@@ -36,15 +36,16 @@ $('.btn-iine').on('click',function(){
     }).fail();
 
 
-});
-/////////承諾した場合/////////////
-$().on('click',function(){
-
 
 });
+// /////////承諾した場合/////////////
+// $('#ok_btn').on('click',function(){
 
-//////////拒否した場合/////////////////
-$().on('click',function(){
+//     alert("承認しました")
+// });
 
+// //////////拒否した場合/////////////////
+// $('no_btn').on('click',function(){
 
-});
+//     alert('拒否しました)
+// });

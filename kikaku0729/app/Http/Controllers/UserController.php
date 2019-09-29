@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;//appから数える
 use Auth;
+use App\Favorite;
+use App\Admin;
 
 class UserController extends Controller
 {
@@ -68,12 +70,26 @@ class UserController extends Controller
 
         return redirect('users/edit');
 
-         }
-
-         public function favorite(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.favorite.index',['user' => $user]);
         }
+         ///////////////////////いいね！//////////////////////////
+        public function favorite(){
+            $user = User::where("user_id",Auth::id())->first();
+
+            $host = 'user';
+
+
+            $lists = Favorites::where('user_id', Auth::id())->where('host', 'admin')->get();
+            $admin_lists = array();
+            foreach ($lists as $list){
+                array_push($admin_lists ,$list->admin_id);
+            }
+            var_dump($admin_lists);
+            $admins = Admin::whereIn('admin_id', $lists);
+
+            return view('users.favorite.index',['user' => $user,'lists' => $lists, 'user' => $host]);
+        }
+
+        ////////////////////////////////////////////////////////////
         public function message(){
             $user = User::where("user_id",Auth::id())->first();
             return view('users.message.index',['user' => $user]);
