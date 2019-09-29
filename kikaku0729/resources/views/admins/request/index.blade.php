@@ -23,13 +23,13 @@
 				<th>拒否</th>
 			</tr>
 
-			@foreach($listss as $list)
+		@foreach($listss as $list)
 			<tr>
 				<td>{{ $lists->user_id }}</td>
 				<td><button class="ok_btn">依頼</button></td>
 				<td><button class="no_btn">拒否</button></td>
 			</tr>
-	@endforeach
+		@endforeach
 </table>
 				</div>
 			  </div>

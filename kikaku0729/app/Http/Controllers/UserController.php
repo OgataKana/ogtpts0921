@@ -86,10 +86,21 @@ class UserController extends Controller
             var_dump($admin_lists);
             $admins = Admin::whereIn('admin_id', $lists);
 
-            return view('users.favorite.index',['user' => $user,'lists' => $lists, 'user' => $host]);
+            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host]);
         }
         public function post(){
 
+        }
+        ////////////////////////承諾／拒否//////////////////////////////////
+        public function ok(){
+            $admin = Admin::where("admin_id",Auth::id())->first();
+
+
+            return view('users.message.list',['admin'=> $admin]);
+        }
+        public function no(){
+
+            return view('users.favorite.index');
         }
 
 
@@ -98,22 +109,23 @@ class UserController extends Controller
             $user = User::where("user_id",Auth::id())->first();
             return view('users.message.list',['user' => $user]);
         }
-        public function photodata(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.photodate.index',['user' => $user]);
-        }
-        public function request(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.request.index',['user' => $user]);
-        }
-        public function sales(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.sales.index',['user' => $user]);
-        }
-        public function pr(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.profile.index',['user' => $user]);
-        }
+
+        // public function photodata(){
+        //     $user = User::where("user_id",Auth::id())->first();
+        //     return view('users.photodate.index',['user' => $user]);
+        // }
+        // public function request(){
+        //     $user = User::where("user_id",Auth::id())->first();
+        //     return view('users.request.index',['user' => $user]);
+        // }
+        // public function sales(){
+        //     $user = User::where("user_id",Auth::id())->first();
+        //     return view('users.sales.index',['user' => $user]);
+        // }
+        // public function pr(){
+        //     $user = User::where("user_id",Auth::id())->first();
+        //     return view('users.profile.index',['user' => $user]);
+        // }
         public function QA(){
             $user = User::where("user_id",Auth::id())->first();
             return view('users.Q&A.index',['user' => $user]);

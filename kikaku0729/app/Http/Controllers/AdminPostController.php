@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AdminPost;
 use Illuminate\Http\Request;
 
 class AdminPostController extends Controller
@@ -13,7 +14,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = AdminPost::all();
         return view('admins.message.list',[
             "posts" => $posts
         ]);

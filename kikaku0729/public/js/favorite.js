@@ -19,7 +19,7 @@ $('.btn-iine').on('click',function(){
         data:{
             'user_id':user_id,
             'admin_id':admin_id,
-
+            $host:'user'
         }
 
     }).done(function(data){
@@ -37,17 +37,17 @@ $('.btn-iine').on('click',function(){
 
 
 });
-/////////承諾した場合/////////////
-// $().on('click',function(){
-//     $(document).ready(function(){
-//         $("#ok_btn").click(function(){
-//           alert('承諾しました。');
-//         });
 
-// });
+///////承諾した場合/////////////
+$('.ok_btn').on('click',function(){
 
-//////////拒否した場合/////////////////
-// $().on('click',function(){
+    alert('承諾しました。');
 
 
-// })
+});
+
+////////拒否した場合/////////////////
+$('.no_btn').on('click',function(){
+
+
+});

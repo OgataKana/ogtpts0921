@@ -51,11 +51,19 @@ Route::middleware("auth")->group(function(){//中はログイン しないとア
 //各ページ表示//
     Route::get('/about','UserController@about');
 
-
+    ////////////////////いいね////////////////////////////////
     Route::get('/favorite','UserController@favorite')->name('favorite');
-    Route::post('/favorite/post','UserController@post')->name('favorite.post');
+    // Route::post('/favorite/post','UserController@post')->name('favorite.post');
+    ////////承諾／拒否////////////////
+    Route::get('/ok','UserController@ok')->name('ok');
 
-    // Route::get('/message','UserController@message')->name('message');
+    Route::get('/no','UserController@no')->name('no');
+
+
+
+
+
+
     Route::get('/photodata','UserController@photodata')->name('photodata');
     Route::get('/request','UserController@request')->name('request');
     Route::get('/sales','UserController@sales')->name('sales');
@@ -85,8 +93,8 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
 
     Route::get('password/rest', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     /////////////////admin-message///////////////////////////
-    Route::get("posts", 'PostController@index')->name('admin.message');
-    Route::post("posts/create", 'PostController@create')->name('admin.message.store');
+    Route::get("posts", 'AdminPostController@index')->name('admin.message');
+    Route::post("posts/create", 'AdminPostController@create')->name('admin.message.store');
 
     // Route::get('/message', 'AdminPostController@create')->name('admin.message');
     // Route::post('/message/store', 'AdminPostController@store')->name('admin.message.store');
@@ -103,13 +111,19 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
     Route::get('/item','Admin\ItemController@create');
     Route::post('/item/store','Admin\ItemController@store');
 
-    //各ページ表示//
+    //////////////////////
     Route::get('/favorite','AdminController@favorite')->name('admin.favorite');
-    // Route::get('/message','AdminController@message')->name('admin.message');
+
+
     Route::get('/photodata','AdminController@photodata')->name('admin.photodata');
 
+    ///////////リクエスト///////////////////////
     Route::get('/request','AdminController@request')->name('admin.request');
     Route::post('/request/post','AdminController@post')->name('admin.request.post');
+        ////////承諾／拒否////////////////
+    Route::get('/ok','AdminController@ok')->name('admin.ok');
+    Route::get('/no','AdminController@no')->name('admin.no');
+        ////////////////////////////////
 
 
     Route::get('/pr','AdminController@pr')->name('admin.profile');

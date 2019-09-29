@@ -3,8 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;//appから数える
+use App\Request_admin;
 use Auth;
-use App\Requests_admin;
 use App\User;
 
 class AdminController extends Controller
@@ -91,33 +91,49 @@ class AdminController extends Controller
         var_dump($user_lists);
         $users = User::whereIn('user_id', $lists);
 
-        return view('admins.request.index',['admin' => $admin,'lists' => $lists, 'admin'=> $host]);
+        return view('admins.request.index',['admin' => $admin,'lists' => $lists, $host]);
     }
     public function post(){
 
     }
+
+    ////////////////////////承諾／拒否//////////////////////////////////
+    public function ok(){
+        $user = User::where("user_id",Auth::id())->first();
+
+
+        return view('admins.message.list',['user' => $user]);
+
+    }
+    public function no(){
+        return view('admins.request.index');
+    }
+
+
+
+
     ////////////////////////////////////////////////////////////
 
-     public function favorite(){
-        $admin = Admin::where("admin_id",Auth::id())->first();
-        return view('admins.favorite.index',['admin' => $admin]);
-    }
+    //  public function favorite(){
+    //     $admin = Admin::where("admin_id",Auth::id())->first();
+    //     return view('admins.favorite.index',['admin' => $admin]);
+    // }
     public function message(){
         $admin = Admin::where("admin_id",Auth::id())->first();
         return view('admins.message.list',['admin' => $admin]);
     }
-    public function photodata(){
-        $admin = Admin::where("admin_id",Auth::id())->first();
-        return view('admins.photodata.index',['admin' => $admin]);
-    }
+    // public function photodata(){
+    //     $admin = Admin::where("admin_id",Auth::id())->first();
+    //     return view('admins.photodata.index',['admin' => $admin]);
+    // }
     // public function request(){
     //     $admin = Admin::where("admin_id",Auth::id())->first();
     //     return view('admins.request.index',['admin' => $admin]);
     // }
-    public function pr(){
-        $admin = Admin::where("admin_id",Auth::id())->first();
-        return view('admins.profile.index',['admin' => $admin]);
-    }
+    // public function pr(){
+    //     $admin = Admin::where("admin_id",Auth::id())->first();
+    //     return view('admins.profile.index',['admin' => $admin]);
+    // }
     public function QA(){
         $admin = Admin::where("admin_id",Auth::id())->first();
         return view('admins.Q&A.index',['admin' => $admin]);
