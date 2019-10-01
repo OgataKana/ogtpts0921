@@ -22,14 +22,15 @@
 				<th>依頼</th>
 				<th>拒否</th>
 			</tr>
-
+	<form action="/" method="post" id="values">
 		@foreach($listss as $list)
 			<tr>
 				<td>{{ $lists->user_id }}</td>
-				<td><button class="ok_btn">依頼</button></td>
-				<td><button class="no_btn">拒否</button></td>
+				<td><input type="button" id="ok_btn" value="依頼"></td>
+				<td><input type="button" id="no_btn" value="拒否"></td>
 			</tr>
 		@endforeach
+	</form>
 </table>
 				</div>
 			  </div>

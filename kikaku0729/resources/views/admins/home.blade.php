@@ -19,7 +19,7 @@
     <!--<th>user_ID</th>-->
     <th>NAME</th>
     <th>身長</th>
-    <th>性別</th>
+    {{-- <th>性別</th> --}}
     <th>系統ジャンル</th>
     <th><img src="{{asset('images/parts/iine2.jpeg')}}" alt="" height="10px" width="10px"></th>
 
@@ -29,7 +29,7 @@
   <tr>
     <td>{{ $user->user_nickname }}</td>
     <td>{{ $user->user_height }}cm</td>
-    <td>{{ $user->user_gender }}</td>
+    {{-- <td>{{ $user->user_gender }}</td> --}}
     <td>{{ $user->user_genre }}</td>
     <td><button class="btn-iine" data-user_id="{{ $user->user_id}}"><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
 

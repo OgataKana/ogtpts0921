@@ -28,14 +28,19 @@
     Favorite＿tableのなかにあるadmin＿idを使って
     誰なのかadmin_nameを表示する--}}
 
+    <form action="/" method="post" id="values">
+
+
         @foreach($lists as $list)
         <tr>
             <td>{{ $list->admin_id }}</td>
-            <td><button class="ok_btn">承諾</button></td>
-            <td><button class="no_btn">拒否</button></td>
+            <td><input type="button" id="ok_btn" value="承諾"></td>
+            <td><input type="button" id="no_btn" value="拒否"></td>
 
         </tr>
         @endforeach
+    </form>
+
 </table>
 				</div>
 			  </div>

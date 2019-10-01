@@ -5,7 +5,9 @@ use Illuminate\Http\Request;
 use App\Admin;//appから数える
 use App\Request_admin;
 use Auth;
+
 use App\User;
+use App\Favorite;
 
 class AdminController extends Controller
 {
@@ -58,6 +60,7 @@ class AdminController extends Controller
         $admin->admin_email = $request->admin_email;
         $admin->admin_address = $request->admin_zipcode.$request->admin_address;
         $admin->ec_url = $request->ec_url;
+        $admin->admin_genre = $request->admin_genre;
         $admin->admin_password = $request->admin_password;
 
 

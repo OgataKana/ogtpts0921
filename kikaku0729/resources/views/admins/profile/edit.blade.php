@@ -43,6 +43,14 @@
             販売サイトURL
             <input type="text" class="form-control" name="ec_url" value="{{$admin->ec_url}}">
         </div>
+        ジャンル
+        <select name="admin_genre" id="">
+            <option value="カジュア">カジュアル</option>
+            <option value="フェミニン">フェミニン</option>
+            <option value="スポーティ">スポーティ</option>
+            <option value="ストリート">ストリート</option>
+            <option value="その他">その他</option>
+        </select>
         <div>
             profile画像(ブランドロゴなど)
 

@@ -5,7 +5,7 @@ $('.btn-iine').on('click',function(){
     //送りたいので、まずはプログラム上で取得して
     //変数に保存する
     const user_id = $('#favorite-script').data('userid');
-    const admin_id = $(this).data('admin_id');
+    const admin_id = $(this).data(' admin_id');
 
     const clickedButton = $(this);
 
@@ -19,7 +19,7 @@ $('.btn-iine').on('click',function(){
         data:{
             'user_id':user_id,
             'admin_id':admin_id,
-            $host:'user'
+            'host':'user'
         }
 
     }).done(function(data){
@@ -43,6 +43,7 @@ $('.ok_btn').on('click',function(){
 
     alert('承諾しました。');
 
+    window.location.href = '/users/mssage/index';
 
 });
 

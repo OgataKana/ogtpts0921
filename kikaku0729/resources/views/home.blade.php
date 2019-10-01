@@ -20,7 +20,7 @@
 <table class="table table-striped table-bordered">
   <tr>
     <th>企業名：ブランド名</th>
-    <th>性別ジャンル</th>
+    {{-- <th>性別ジャンル</th> --}}
     <th>系統ジャンル</th>
     <th>like</th>
     <!--<th>ブランド説明</th>-->
@@ -29,8 +29,8 @@
   @foreach($admins as $admin)
   <tr>
     <td>{{ $admin->admin_name }}</td>
-    <td>{{ $admin->admin_gender }}</td>
-    <td>{{ $admin->admin_ganre }}</td>
+    {{-- <td>{{ $admin->admin_gender }}</td> --}}
+    <td>{{ $admin->admin_genre }}</td>
     <td><button class="btn-iine" data-admin_id="{{$admin->admin_id}}" $host = 'admin';><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
 
     <!--<td>{{ $admin->admin_text }}</td>-->

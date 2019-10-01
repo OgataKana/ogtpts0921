@@ -53,7 +53,7 @@ Route::middleware("auth")->group(function(){//中はログイン しないとア
 
     ////////////////////いいね////////////////////////////////
     Route::get('/favorite','UserController@favorite')->name('favorite');
-    // Route::post('/favorite/post','UserController@post')->name('favorite.post');
+    Route::post('/favorite/post','UserController@post')->name('favorite.post');
     ////////承諾／拒否////////////////
     Route::get('/ok','UserController@ok')->name('ok');
 
@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admins', 'middleware' => 'auth:admin'], function(){
     Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
 
     Route::get('/index','AdminController@index')->name('admin.index');
+
     Route::get('/edit','AdminController@edit')->name('admin.edit');
     Route::post('/store','AdminController@store')->name('admin.store');
 
