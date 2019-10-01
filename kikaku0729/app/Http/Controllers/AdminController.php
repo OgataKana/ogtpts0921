@@ -94,7 +94,7 @@ class AdminController extends Controller
         var_dump($user_lists);
         $users = User::whereIn('user_id', $lists);
 
-        return view('admins.request.index',['admin' => $admin,'lists' => $lists, $host]);
+        return view('admins.request.index',['admin' => $admin,'lists' => $lists, $host => 'admin']);
     }
     public function post(){
 

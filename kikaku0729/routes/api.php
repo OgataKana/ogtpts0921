@@ -33,4 +33,4 @@ Route::group(['middleware' => 'auth:admin'], function(){
 
 });
 
- Route::POST('favorites/admins/{user_id}/update','API\FavoriteController@update')->name('favorite.user.update');
+ Route::POST('/api/favorites/admins/{user_id}/update','API\RequestController@update')->name('favorite.user.update');

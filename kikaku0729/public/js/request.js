@@ -5,7 +5,7 @@ $('.btn-iine').on('click',function(){
     //送りたいので、まずはプログラム上で取得して
     //変数に保存する
     const admin_id = $('#request-script').data('adminid');
-    const user_id = $(this).data('user_id');
+    const user_id = $(this).data('userid');
 
     const clickedButton = $(this);
 
@@ -13,13 +13,13 @@ $('.btn-iine').on('click',function(){
     //プログラムも書く
     //
     $.ajax({
-        url:'api/requests_admin/users/'+ user_id + '/update',
+        url:'../api/favorites/admins/'+ user_id + '/update',
         method:'POST',
         dataType:'JSON',
         data:{
             'user_id':user_id,
             'admin_id':admin_id,
-            $host:'admin'
+            'host':'admin'
         }
 
     }).done(function(data){
@@ -27,9 +27,9 @@ $('.btn-iine').on('click',function(){
         console.log(data.message);
 
         if(data.message === 'add'){
-            clickedButton.find('img').attr('src','images/parts/iine2.jpeg');
+            clickedButton.find('img').attr('src','/images/parts/iine2.jpeg');
         }else{
-            clickedButton.find('img').attr('src','images/parts/iine.png');
+            clickedButton.find('img').attr('src','/images/parts/iine.png');
         }
 
 
@@ -42,10 +42,12 @@ $('.btn-iine').on('click',function(){
 $('.ok_btn').on('click',function(){
 
     alert("承認しました");
+    window.location.href = "/admins/message/list";
 });
 
 //////////拒否した場合/////////////////
 $('.no_btn').on('click',function(){
 
     alert('拒否しました');
+    window.location.href = "/";
 });

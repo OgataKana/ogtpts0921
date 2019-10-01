@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Favorite;
+use App\Request_admin;
 
-class FavoriteController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -68,6 +68,7 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //誰が、なにに対して良いね！したかを受け取る
@@ -77,11 +78,13 @@ class FavoriteController extends Controller
 
 
         //上記の-table 検索して、該当データを調べる。良いね！をしているか探す。
-        $flag = Favorite::where('user_id',$user_id)->where('admin_id',$admin_id)->get();
+
+        $flag = Favorite::where('admin_id',$admin_id)->where('user_id',$user_id)->get();
 
         //ある場合は消す
         if(count($flag) > 0){
-           Favorite::where('user_id',$user_id)->where('admin_id',$admin_id)->delete();
+
+           Favorite::where('admin_id',$admin_id)->where('user_id',$user_id)->delete();
            return['message' => 'delete'];
 
         //ない場合は作る
@@ -99,7 +102,6 @@ class FavoriteController extends Controller
 
 
     }
-
 
     /**
      * Remove the specified resource from storage.

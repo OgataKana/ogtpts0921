@@ -5,7 +5,7 @@ $('.btn-iine').on('click',function(){
     //送りたいので、まずはプログラム上で取得して
     //変数に保存する
     const user_id = $('#favorite-script').data('userid');
-    const admin_id = $(this).data(' admin_id');
+    const admin_id = $(this).data('adminid');
 
     const clickedButton = $(this);
 
@@ -27,9 +27,9 @@ $('.btn-iine').on('click',function(){
         console.log(data.message);
 
         if(data.message === 'add'){
-            clickedButton.find('img').attr('src','images/parts/iine2.jpeg');
+            clickedButton.find('img').attr('src','/images/parts/iine2.jpeg');
         }else{
-            clickedButton.find('img').attr('src','images/parts/iine.png');
+            clickedButton.find('img').attr('src','/images/parts/iine.png');
         }
 
 
@@ -43,12 +43,12 @@ $('.ok_btn').on('click',function(){
 
     alert('承諾しました。');
 
-    window.location.href = '/users/mssage/index';
+    window.location.href = '/users/mssage/list';
 
 });
 
 ////////拒否した場合/////////////////
 $('.no_btn').on('click',function(){
 
-
+    window.location.href = "/";
 });

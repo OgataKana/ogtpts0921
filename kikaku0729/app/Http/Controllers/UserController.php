@@ -86,7 +86,7 @@ class UserController extends Controller
             var_dump($admin_lists);
             $admins = Admin::whereIn('admin_id', $lists);
 
-            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host]);
+            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host=> 'user']);
         }
         public function post(){
 
@@ -98,7 +98,9 @@ class UserController extends Controller
 
             return view('users.message.list',['admin'=> $admin]);
         }
+
         public function no(){
+            $admin = Admin::where("admin_id",Auth::id())->first();
 
             return view('users.favorite.index');
         }

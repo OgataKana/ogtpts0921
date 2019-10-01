@@ -29,7 +29,7 @@ class AdminPostController extends Controller
      //表示
     public function create()
     {
-        $post = new Post($request->all());
+        $post = new Post($requests->all());
         $post->save();
         event(new Posted($post));
 
