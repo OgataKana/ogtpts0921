@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('users.message.list',[
+        return view('message',[
             "posts" => $posts
         ]);
     }

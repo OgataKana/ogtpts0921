@@ -126,7 +126,7 @@
 		<ul>
 			<li class="active"><a href="{{ route('home') }}">List</a></li>
 			<li class="active"><a href="{{ route('favorite') }}">Favarite</a></li>
-			<li class="active"><a href="{{ route('message') }}">Messages</a></li>
+			<li class="active"><a href="{{ route('maillist') }}">Messages</a></li>
             {{-- <li class="active"><a href="{{ route('photodata') }}">Photo Data</a></li> --}}
             {{-- <li class="active"><a href="{{ route('sales') }}">Sales</a></li> --}}
            	{{-- <li class="active"><a href="{{ route('profile') }}">PR情報編集</a></li> --}}

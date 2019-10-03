@@ -1,24 +1,32 @@
 @extends('users.share.base')
 
 @section('content')
-    {{-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <ul id="board">
-                            @foreach($posts as $post)
-                            <li>{{ $post->text }}</li>
-                        @endforeach
-                        </ul>
-                    </div>
+<div class='container'>
 
-                    <div class="card-body">
-                        <input type="text" id="text">
-                        <input type="submit" value="送信" id="submit">
-                    </div>
-                </div>
+        <form action="/mail/create" method="POST" enctype="multipart/form-data">
+
+            {{ csrf_field() }}
+
+            <div>
+                To:企業名
+                <input type="text" class="form-control" name="admin_name" value="{{$admin->admin_name}}">
             </div>
-        </div>
-    </div> --}}
+            <div>
+                To:メールアドレス
+                <input type="text" class="form-control" name="admin_email" value="{{$admin->admin_email}}">
+            </div>
+            <div>
+                From:メールアドレス
+                <input type="text" class="form-control" name="user_email" value="{{$user->user_email}}">
+            </div>
+            <div>
+                コメント
+                <input type="text" class="form-control" name="user_comment" value="">
+            </div>
+
+
+            <button type= "submit" class="btn">送信</button>
+        </form>
+    </div>
+
 @endsection

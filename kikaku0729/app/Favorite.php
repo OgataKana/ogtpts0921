@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Favorite extends Model
 {
     //
-    protected $fillable = ['user_id','admin_id','host'];
+    protected $fillable = ['user_id','admin_id','host',];
     //多対多の定義
     //$thisこのテーブルと***テーブルと関係
     //User_table

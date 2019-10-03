@@ -21,20 +21,33 @@
     <th>身長</th>
     {{-- <th>性別</th> --}}
     <th>系統ジャンル</th>
-    <th><img src="{{asset('images/parts/iine2.jpeg')}}" alt="" height="10px" width="10px"></th>
+    <th>Like</th>
 
   </tr>
 
+   {{-- @foreach($lists as $list)
+  <tr>
+    <td>{{ $list->user_name }}</td>
+    <td>{{ $list->user_height }}cm</td>
+    <td>{{ $list->user_genre }}</td>
+    <td><button class="btn-iine" data-userid="{{ $list->user_id }}" $host = 'user';>
+
+            @if($list->["iine_flag"] == 0)
+            <img src="{{ asset('images/parts/iine2.jpeg') }}" alt="" height="10px" width="10px">
+            @else
+            <img src="{{ asset('images/parts/iine.png') }}" alt="" height="10px" width="10px">
+            @endif
+            </button>
+        </td>
+    </tr>
+@endforeach --}}
   @foreach($users as $user)
   <tr>
-    <td>{{ $user->user_nickname }}</td>
+    <td>{{ $user->user_name }}</td>
     <td>{{ $user->user_height }}cm</td>
-    {{-- <td>{{ $user->user_gender }}</td> --}}
     <td>{{ $user->user_genre }}</td>
-    <td><button class="btn-iine" data-userid="{{ $user->user_id}}"><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
-
-    <!--<td>{{ $user->user_text }}</td>-->
-
+    <td><button class="btn-iine" data-userid="{{ $user->user_id}}"><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button>
+    </td>
   </tr>
   @endforeach
 </table>

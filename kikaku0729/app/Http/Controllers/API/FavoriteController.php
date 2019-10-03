@@ -34,9 +34,8 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
     }
 
     /**
@@ -73,11 +72,11 @@ class FavoriteController extends Controller
         //誰が、なにに対して良いね！したかを受け取る
         $admin_id = intval($request->admin_id);
         $user_id = intval($request->user_id);
-        $host = intval($request->host);
+        $host = $request->host;
 
 
         //上記の-table 検索して、該当データを調べる。良いね！をしているか探す。
-        $flag = Favorite::where('user_id',$user_id)->where('admin_id',$admin_id)->get();
+        $flag = Favorite::where('user_id',$user_id)->where('admin_id',$admin_id)->where('host','user')->get();
 
         //ある場合は消す
         if(count($flag) > 0){
@@ -111,4 +110,11 @@ class FavoriteController extends Controller
     {
         //
     }
+    // public function ok(Request $request, $id){
+
+    // }
+    // public function no(Request $request, $id){
+
+    // }
+
 }

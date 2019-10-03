@@ -74,12 +74,12 @@ class RequestController extends Controller
         //誰が、なにに対して良いね！したかを受け取る
         $admin_id = intval($request->admin_id);
         $user_id = intval($request->user_id);
-        $host = intval($request->host);
+        $host = $request->host;
 
 
         //上記の-table 検索して、該当データを調べる。良いね！をしているか探す。
 
-        $flag = Favorite::where('admin_id',$admin_id)->where('user_id',$user_id)->get();
+        $flag = Favorite::where('admin_id',$admin_id)->where('user_id',$user_id)->where('host','admin')->get();
 
         //ある場合は消す
         if(count($flag) > 0){
@@ -102,6 +102,7 @@ class RequestController extends Controller
 
 
     }
+
 
     /**
      * Remove the specified resource from storage.

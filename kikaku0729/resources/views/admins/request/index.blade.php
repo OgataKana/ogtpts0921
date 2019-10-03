@@ -22,15 +22,15 @@
 				<th>依頼</th>
 				<th>拒否</th>
 			</tr>
-	<form action="/" method="post" id="values">
-		@foreach($listss as $list)
+
+		@foreach($lists as $list)
 			<tr>
-				<td>{{ $lists->user_id }}</td>
-				<td><input type="button" id="ok_btn" value="依頼"></td>
-				<td><input type="button" id="no_btn" value="拒否"></td>
+				<td>{{ $list->user_name }}</td>
+				<td><a href="{{ route('admin.maillist') }}">承諾</a></td>
+				<td><a href="{{ route('admin.request') }}">拒否</a></td>
 			</tr>
 		@endforeach
-	</form>
+
 </table>
 				</div>
 			  </div>
@@ -39,26 +39,3 @@
   </div>
 </div>
 @endsection
-
-
-{{--
-	<table class="table table-striped table-bordered">
-		<div class="request">
-			<h3>ユーザーへのリクエスト</h3>
-			<tr>
-				<th>ユーザー名</th>
-				<th>取消</th>
-
-			</tr>
-			@foreach($requests as $request)
-			  <tr>
-				<td>{{ $request->user_id }}</td>
-				<td><button>取消</button></td>
-
-			  </tr>
-			  @endforeach
-
-		</div>
-	</table>
-
-@endsection --}}

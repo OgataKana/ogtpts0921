@@ -28,18 +28,20 @@
     Favorite＿tableのなかにあるadmin＿idを使って
     誰なのかadmin_nameを表示する--}}
 
-    <form action="/" method="post" id="values">
-
-
-        @foreach($lists as $list)
+ @foreach($lists as $list)
         <tr>
-            <td>{{ $list->admin_id }}</td>
-            <td><input type="button" id="ok_btn" value="承諾"></td>
-            <td><input type="button" id="no_btn" value="拒否"></td>
+            <td>{{ $list->admin_name }}</td>
+            <td>
+                <a href="{{ route('maillist') }}">承諾</a>
 
+            </td>
+            <td>
+                <a href="{{ route('favorite') }}">拒否</a>
+
+            </td>
+            </form>
         </tr>
-        @endforeach
-    </form>
+@endforeach
 
 </table>
 				</div>
@@ -49,24 +51,3 @@
   </div>
 </div>
 @endsection
-
-{{-- <table class="table table-striped table-bordered">
-    <div class="favorite">
-        <h3>企業側へのアプローチ</h3>
-        <tr>
-            <th>企業名：ブランド名</th>
-            <th>取消</th>
-
-        </tr>
-          @foreach($favorites as $favorite)
-          <tr>
-            <td>{{ $favorite->admin_id }}</td>
-            <td><button>取消</button></td>
-
-          </tr>
-          @endforeach
-
-    </div>
-</table>
-
-@endsection --}}

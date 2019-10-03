@@ -14,9 +14,6 @@
                         </div>
                     @endif
 
-
-
-
 <table class="table table-striped table-bordered">
   <tr>
     <th>企業名：ブランド名</th>
@@ -26,21 +23,29 @@
     <!--<th>ブランド説明</th>-->
 
   </tr>
-  @foreach($admins as $admin)
+  @foreach($lists as $list)
   <tr>
-    <td>{{ $admin->admin_name }}</td>
+    <td>{{ $list->admin_name }}</td>
     {{-- <td>{{ $admin->admin_gender }}</td> --}}
-    <td>{{ $admin->admin_genre }}</td>
-    <td><button class="btn-iine" data-adminid="{{$admin->admin_id}}" $host = 'admin';><img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px"></button></td>
+    <td>{{ $list->admin_genre }}</td>
+    <td><button class="btn-iine" data-adminid="{{$list->admin_id}}" $host = 'admin';>
+        {{-- {{ --dd($admin->host)-- }} --}}
 
-    <!--<td>{{ $admin->admin_text }}</td>-->
+        @if ($list->["iine_flag"] == 0)
+        <img src="{{asset('images/parts/iine2.jpeg')}}" alt="" height="10px" width="10px">
+        @else
+        <img src="{{asset('images/parts/iine.png')}}" alt="" height="10px" width="10px">
 
+        @endif
+
+    </button>
+    </td>
   </tr>
   @endforeach
 </table>
                 </div>
 
-                </div>
+                 </div>
             </div>
         </div>
     </div>

@@ -59,8 +59,8 @@ class User extends Authenticatable
     return $this->belongsToMany('App\favorite');
     }
     public function requests(){
-        return $this->belongsToMany('App\Request_admin');
-        }
+    return $this->belongsToMany('App\Request_admin');
+    }
 
 
 }

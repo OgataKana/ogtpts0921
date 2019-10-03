@@ -20,15 +20,17 @@
 
                 <tr>
                     <th>ユーザー名</th>
-
+                    <th>メール作成</th>
                 </tr>
 
-                {{-- @foreach($listss as $list)
-                <tr>
-                    <td><a>{{ $lists->user_id }}</a></td>
+                @foreach($lists as $list)
+            <tr>
+                <td>{{ $list->user_name }}</td>
 
-                </tr>
-        @endforeach --}}
+                <td><a href="mailto:{{ $list->user_email }}?subject=Bwinマッチングしました！！" >メール</a>
+                </td>
+            </tr>
+        @endforeach
     </table>
                     </div>
                   </div>

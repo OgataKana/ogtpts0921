@@ -27,9 +27,9 @@ $('.btn-iine').on('click',function(){
         console.log(data.message);
 
         if(data.message === 'add'){
-            clickedButton.find('img').attr('src','/images/parts/iine2.jpeg');
+            clickedButton.find('img').attr('src','../images/parts/iine2.jpeg');
         }else{
-            clickedButton.find('img').attr('src','/images/parts/iine.png');
+            clickedButton.find('img').attr('src','../images/parts/iine.png');
         }
 
 
@@ -38,17 +38,18 @@ $('.btn-iine').on('click',function(){
 
 });
 
-///////承諾した場合/////////////
-$('.ok_btn').on('click',function(){
+// ///////承諾した場合/////////////
+// $('.ok_btn').on('click',function(){
 
-    alert('承諾しました。');
+//     alert('承諾しました。');
 
-    window.location.href = '/users/mssage/list';
 
-});
+//     window.location.href = '/users/message/list/';
 
-////////拒否した場合/////////////////
-$('.no_btn').on('click',function(){
+// });
 
-    window.location.href = "/";
-});
+// ////////拒否した場合/////////////////
+// $('.no_btn').on('click',function(){
+
+//     window.location.href = "/";
+//});

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;//appから数える
 use Auth;
 use App\Favorite;
@@ -71,8 +72,30 @@ class UserController extends Controller
         return redirect('users/edit');
 
         }
-         ///////////////////////いいね！//////////////////////////
+        //ーーーーーーーーいいねーーーーーーーー//
         public function favorite(){
+            $user = User::where("user_id",Auth::id())->first();
+
+            $host= 'user';
+
+
+            $lists = DB::table('favorites')->leftjoin('admins','admins.admin_id','=','favorites.admin_id')
+            ->where('user_id', Auth::id())->where('host', 'admin')->get();
+
+            $admin_lists = array();
+            foreach ($lists as $list){
+                array_push($admin_lists ,$list->admin_id);
+            }
+            var_dump($admin_lists);
+            $admins = Admin::whereIn('admin_id', $lists);
+
+            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host=> 'user']);
+        }
+        public function post(){
+
+        }
+        //ーーーーーーーーーー承諾／拒否ーーーーーーーーーー//
+        public function ok(){
             $user = User::where("user_id",Auth::id())->first();
 
             $host= 'user';
@@ -86,31 +109,58 @@ class UserController extends Controller
             var_dump($admin_lists);
             $admins = Admin::whereIn('admin_id', $lists);
 
-            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host=> 'user']);
-        }
-        public function post(){
 
+            return view('users.message.list',['user' => $user,'lists' => $lists ,$host=> 'user'])->with('flash_message', '承諾しました');
         }
-        ////////////////////////承諾／拒否//////////////////////////////////
-        public function ok(){
-            $admin = Admin::where("admin_id",Auth::id())->first();
 
-
-            return view('users.message.list',['admin'=> $admin]);
-        }
 
         public function no(){
-            $admin = Admin::where("admin_id",Auth::id())->first();
+            $user = User::where("user_id",Auth::id())->first();
 
-            return view('users.favorite.index');
+            $host= 'user';
+
+
+            $lists = Favorite::where('user_id', Auth::id())->where('host', 'admin')->get();
+            $admin_lists = array();
+            foreach ($lists as $list){
+                array_push($admin_lists ,$list->admin_id);
+            }
+            var_dump($admin_lists);
+            $admins = Admin::whereIn('admin_id', $lists);
+
+
+            return view('users.favorite.index',['user' => $user,'lists' => $lists ,$host=> 'user'])->with('flash_message', '拒否しました');
         }
+
+
+        //ーーーーーーーーーーMAIL-listーーーーーーーーーー//
+        public function maillist(){
+            $user = User::where("user_id",Auth::id())->first();
+
+            $host= 'user';
+
+            $lists = DB::table('favorites')->leftjoin('admins','admins.admin_id','=','favorites.admin_id')
+            ->where('user_id', Auth::id())->where('host', 'admin')->get();
+            $admin_lists = array();
+            foreach ($lists as $list){
+                array_push($admin_lists ,$list->admin_id);
+            }
+            var_dump($admin_lists);
+            $admins = Admin::whereIn('admin_id', $lists);
+
+            // var_dump($lists);
+
+            return view('users.message.list',['user' => $user,'lists' => $lists ,$host=> 'user']);
+        }
+         //ーーーーーーーーーーMAIL-送るーーーーーーーーーー//
+
 
 
         ////////////////////////////////////////////////////////////
-        public function message(){
-            $user = User::where("user_id",Auth::id())->first();
-            return view('users.message.list',['user' => $user]);
-        }
+        // public function message(){
+        //     $user = User::where("user_id",Auth::id())->first();
+        //     return view('users.message.list',['user' => $user]);
+        // }
 
         // public function photodata(){
         //     $user = User::where("user_id",Auth::id())->first();
